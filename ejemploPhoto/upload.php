@@ -1,12 +1,18 @@
 <?php
 
 // new filename
-$filename = 'pic_'.date('YmdHis') . '.jpeg';
 
-$url = '';
-if( move_uploaded_file($_FILES['webcam']['tmp_name'],'upload/'.$filename) ){
-	$url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) . '/upload/' . $filename;
+$filename = 'pic_'.date("Y_m_d").'.jpeg';
+$dir="./upload/".$filename;
+base64ToImage($_POST["photo"],$dir);
+
+function base64ToImage($imageData,$dirname){
+    //$data = 'data:image/png;base64,AAAFBfj42Pj4';
+    list($type, $imageData) = explode(';', $imageData);
+    list(,$extension) = explode('/',$type);
+    list(,$imageData)      = explode(',', $imageData);
+    //$fileName = uniqid().'.'.$extension;
+    $imageData = base64_decode($imageData);
+    file_put_contents($dirname, $imageData);
 }
 
-// Return image url
-echo $url;
