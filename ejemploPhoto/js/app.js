@@ -2,18 +2,6 @@
 var constraints = { video: { facingMode: "user" }, audio: false };
 var track = null;
 
-	$(function() {
-		Webcam.set(
-			{
-				width: 1280,
-				height: 720,
-				image_format: 'jpeg',
-				jpeg_quality: 90
-			});
-			
-			Webcam.attach( '#camera--view' );
-	});
-	
 // Define constants
 const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
@@ -38,7 +26,7 @@ cameraTrigger.onclick = function() {
     cameraSensor.width = cameraView.videoWidth;
     cameraSensor.height = cameraView.videoHeight;
     cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+    cameraOutput.src = cameraSensor.toDataURL("image/jpeg");
     cameraOutput.classList.add("taken");
 	saveSnap();
     // track.stop();
@@ -50,53 +38,36 @@ cameraTrigger.onclick = function() {
 			//var canvas=document.getElementById("imageprev");
 			
 			var base64image =  document.getElementById("camera--output").src; //canvas.toDataURL();
-
-			 Webcam.upload( base64image, 'upload.php', function(code, text) {
-				 console.log('Save successfully');
-				 //getListPhotos('loadPhotos.php');
-				 console.log(text);
-            });
-
+			uploadPhoto(base64image);
+			getListPhotos();	//meter en un slider
 		}
-		
-	function createCanvas(data_uri){
-		
-		var canvas = document.createElement('canvas');
-		var ctx = canvas.getContext("2d");
-		var image = new Image();	
-		canvas.width = 400;
-		canvas.height = 300;
-		
-		/*
-		window.addEventListener('resize', resizeCanvas, false);
-        window.addEventListener('orientationchange', resizeCanvas, false);
-        resizeCanvas();
-		*/
-		image.onload = function() {
-			ctx.drawImage(this, 0, 0);	
-		}
-		
-		image.src=data_uri;
-		$(canvas).attr('id', 'imageprev');
-		$("#results").empty();
-		$("#results").append(canvas);
-
-	}
 	
-	 function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-	
-	function getListPhotos(dir) {
-			
+	function uploadPhoto(basePhoto){
+		dataPhoto={"photo":basePhoto}
 		$.ajax(
 			{
-				url:dir,
+				data:dataPhoto,
+				url:"upload.php",
 				type:'POST'			
 			})
 			.done(function(data) {
+				//alert(data);
+				//muestraListaPhotos(data);
+			})
+			.fail(function(data) {
+				console.log(data);
+				alert("fallo de envio/send");
+			});
+	}
+	
+	function getListPhotos() {
 			
+		$.ajax(
+			{
+				url:"loadPhotos.php",
+				type:'POST'			
+			})
+			.done(function(data) {
 				muestraListaPhotos(data);
 			})
 			.fail(function(data) {
