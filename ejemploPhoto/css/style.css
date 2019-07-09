@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%:
+}
+
+#camera, #camera--view, #camera--sensor, #camera--output{
+    position: fixed;
+    height: 100%;
+    width: 100%:
+    object-fit: cover;
+}
+
+#camera--view, #camera--sensor, #camera--output{
+    transform: scaleX(-1);
+    filter: FlipH;
+}
+
+#camera--trigger{
+    width: 200px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+    position: fixed;
+    bottom: 30px;
+    left: calc(50% - 100px);
+}
+
+.taken{
+	position:absolute;
+    height: 100px!important;
+    width: 100px!important;
+    transition: all 0.5s ease-in;
+    border: solid 3px white;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+/*
+#my_camera{
+	width:400px;
+	height:auto;
+}*/
+
+.grayscale{
+
+    -webkit-filter:grayscale(1);
+    -moz-filter:grayscale(1);
+    -o-filter:grayscale(1);
+    -ms-filter:grayscale(1);
+    filter:grayscale(1);
+}
+
+.sepia{
+
+    -webkit-filter:sepia(0.8);
+    -moz-filter:sepia(0.8);
+    -o-filter:sepia(0.8);
+    -ms-filter:sepia(0.8);
+    filter:sepia(0.8);
+}
+
+.blur{
+    -webkit-filter:blur(3px);
+    -moz-filter:blur(3px);
+    -o-filter:blur(3px);
+    -ms-filter:blur(3px);
+    filter:blur(3px);
+}
+
+.brightness{
+    -webkit-filter:brightness(0.3);
+    -moz-filter:brightness(0.3);
+    -o-filter:brightness(0.3);
+    -ms-filter:brightness(0.3);
+    filter:brightness(0.3);
+}
+
+.contrast{
+
+    -webkit-filter:contrast(0.5);
+    -moz-filter:contrast(0.5);
+    -o-filter:contrast(0.5);
+    -ms-filter:contrast(0.5);
+    filter:contrast(0.5);
+}
+
+.hue-rotate{
+
+    -webkit-filter:hue-rotate(90deg);
+    -moz-filter:hue-rotate(90deg);
+    -o-filter:hue-rotate(90deg);
+    -ms-filter:hue-rotate(90deg);
+    filter:hue-rotate(90deg);
+}
+
+.hue-rotate2{
+
+    -webkit-filter:hue-rotate(180deg);
+    -moz-filter:hue-rotate(180deg);
+    -o-filter:hue-rotate(180deg);
+    -ms-filter:hue-rotate(180deg);
+    filter:hue-rotate(180deg);
+}
+
+.hue-rotate3{
+
+   -webkit-filter:hue-rotate(270deg);
+    -moz-filter:hue-rotate(270deg);
+    -o-filter:hue-rotate(270deg);
+    -ms-filter:hue-rotate(270deg);
+    filter:hue-rotate(270deg);
+}
+
+.saturate{
+    -webkit-filter:saturate(10);
+    -moz-filter:saturate(10);
+    -o-filter:saturate(10);
+    -ms-filter:saturate(10);
+    filter:saturate(10);
+}
+
+.invert{
+
+    -webkit-filter:invert(1);
+    -moz-filter:invert(1);
+    -o-filter: invert(1);
+    -ms-filter: invert(1);
+    filter: invert(1);
+
+}
+
+
+
+
