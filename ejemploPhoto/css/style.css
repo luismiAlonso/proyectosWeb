@@ -7,6 +7,11 @@ html, body{
     width: 100%:
 }
 
+#myAwesomeForm{
+	position:relative;
+    z-index: 2;
+}
+
 #camera, #camera--view, #camera--sensor, #camera--output{
     position: fixed;
     height: 100%;
