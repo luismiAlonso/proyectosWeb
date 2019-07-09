@@ -53,7 +53,7 @@ cameraTrigger.onclick = function() {
 			})
 			.fail(function(data) {
 				console.log(data);
-				alert("fallo de envio/send");
+				//alert("fallo de envio/send");
 			});
 	}
 	
