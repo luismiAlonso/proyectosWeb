@@ -1,30 +1,34 @@
-<html lang=”es”>
+<!doctype html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Name of your awesome camera app -->
-    <title>Camera App</title>
-    <!-- Link to your main style sheet-->
-    <link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhotoZaca</title>
+<link href="css/style.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Camera -->
-    <main id="camera">
-        <!-- Camera sensor -->
-        <canvas id="camera--sensor"></canvas>
-        <!-- Camera view -->
-        <video id="camera--view" autoplay playsinline></video>
-        <!-- Camera output -->
-        <img src="//:0" alt="" id="camera--output">
-        <!-- Camera trigger -->
-        <button id="camera--trigger">Take a picture</button>
-    </main>
-    <!-- Reference to your JavaScript file -->
-	<script src="js/jquery-3.1.1.min.js"></script>
+	<div class="center-block">
+	<!-- -->
+		<div id="screenshot" class="center-block">
+		
+			<div id="my_camera" ></div>
+			<p></p>
+			<div id="results"  ></div>
+			<p></p>
+			<div id="myAwesomeForm"> </div>
+			<p></p>
+			<input type=button class="btn btn-primary" value="filter" onClick="configure()">
+			<input type=button class="btn btn-primary capture-button" value="Take Snapshot" onClick="take_snapshot()">
+			<input type=button class="btn btn-primary" value="Save Snapshot" onClick="saveSnap()">
+		</div>
+		
+	</div>
+	<!-- Script -->
+	<script src="js/jquery-1.12.1.js"></script>
 	<script src="js/jquery-ui.js"></script>
     <script src="js/funcionesAJAX.js"></script>
 	<script type="text/javascript" src="webcamjs/webcam.min.js"></script>
-    <script src="js/app.js"></script>
+	<script type="text/javascript" src="webcamjs/aplicacion.js"></script>
+
 </body>
 </html>

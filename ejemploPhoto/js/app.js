@@ -34,12 +34,9 @@ cameraTrigger.onclick = function() {
 
 
 	function saveSnap(){
-			// Get base64 value from <img id='imageprev'> source
-			//var canvas=document.getElementById("imageprev");
-			
 			var base64image =  document.getElementById("camera--output").src; //canvas.toDataURL();
 			uploadPhoto(base64image);
-			getListPhotos();	//meter en un slider
+			//getListPhotos();	//meter en un slider
 		}
 	
 	function uploadPhoto(basePhoto){
